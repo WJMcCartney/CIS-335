@@ -14,6 +14,7 @@ msg byte "this is a string made up of random colors"
 .code
 main PROC
 call Randomize; gets a random seed
+call writedec
 mov esi, OFFSET intArr; finds the location of first element of intArr
 mov ecx, LENGTHOF intArr; how many times will it loop
 mov eax, 10;
@@ -22,9 +23,6 @@ Call RandomRange; gets a random value from the seed
 mov [esi], eax
 add esi, 4
 loop l1
-;no fuckin clue if this part is right
-
-;this is from notes in class and between these comments im kinda lost 
 mov esi, OFFSET intArr
 mov ecx, LENGTHOF intArr
 L2:
@@ -43,12 +41,13 @@ add esi, 4
 loop L2
 L3:
 inc blueCount
-add esi, 4
-loop L2
-;add a way for the numbers to correspond to the string i think
 Call SetTextColor
 Call WriteString
 Call Crlf
+add esi, 4
+loop L2
+;add a way for the numbers to correspond to the string i think
+
 ;end the program
 
  exit
