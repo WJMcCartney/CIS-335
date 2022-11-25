@@ -5,7 +5,7 @@
 INCLUDE Irvine32.inc
 .data
 intArr SDWORD 20 DUP(?); creates an uninitialized array with type SDWORD (4 bytes)
-msg byte "this is a string made up of random colors"
+msg byte "this is a string made up of random colors", 0
 testingVar SDWORD ?
 .code
 main PROC
@@ -17,8 +17,6 @@ mov eax, 10;
 Call RandomRange; gets a random value from the seed
 inc eax
 mov [esi], eax
-call WriteDec
-CALL CRLF
 add esi, 4
 loop Loop1
 mov esi, OFFSET intArr
@@ -26,9 +24,6 @@ mov ecx, LENGTHOF intArr
 inc ecx; starting the counter at +1 so that we can decrement immediately because the loops did not work
 Loop2:
 dec ecx
-mov testingVar, ecx
-mov eax, testingVar
-call WriteDec
 cmp ecx, 0
 je EndProgramHere; end the loop if it reaches here
 cmp SDWORD ptr[esi], 10; this compares whether the contents of esi is less than, equal to, or greater than 10 and is blue
