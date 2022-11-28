@@ -6,7 +6,6 @@ INCLUDE Irvine32.inc
 .data
 intArr SDWORD 20 DUP(?); creates an uninitialized array with type SDWORD (4 bytes)
 msg byte "this is a string made up of random colors", 0
-testingVar SDWORD ?
 .code
 main PROC
 call Randomize; gets a random seed
