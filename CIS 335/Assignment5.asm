@@ -1,6 +1,6 @@
-; Author: William McCartney
+; Author: William McCartney and Logan McLain
 ; Program Name: CIS 335 Assignement 5
-; Program Description: randomly generates color values and prints a string with that color.
+; Program Description: randomly generates color values with set percentages and prints a string with that color.
 ; Date: 30 November 2022 
 INCLUDE Irvine32.inc
 .data
@@ -30,7 +30,7 @@ jge Loop3; if it is greater than or equal to 0 then it will not complete the inc
 cmp SDWORD ptr[esi], 7; this compares whether the contents of esi is less than, equal to, or greater than 7 and is white
 jge Loop4; if it is not white or blue then it is green
 cmp SDWORD ptr[esi], 1; can remove this statement and just have it jump to loop 5 if neither option happens but it looks nicer with it all being the same
-je Loop5; we may be able to run all these different jumps and loops as different procedures to call (Call GreenCountIncrease or some shit like that)
+je Loop5; we may be able to run all these different jumps and loops as different procedures to call
 Loop5:
 mov eax, green; last jump goes here and sets eax to irvine32 green
 Call SetTextColor; uses irvine32 to set the color to green
